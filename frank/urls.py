@@ -3,8 +3,6 @@ from rest_framework import routers
 from frank.rest_bo import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
 router.register(r'skills', views.SkillViewSet)
 router.register(r'categories', views.CategoryViewSet)
 router.register(r'educations', views.EducationViewSet)

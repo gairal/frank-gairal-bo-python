@@ -40,7 +40,7 @@ class Education(models.Model):
         ordering = ('year_in',)
 
 class Experience(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
     image = models.ForeignKey('Image', related_name='experiences', null=True)
     description = models.TextField()
     date_in = models.DateField()

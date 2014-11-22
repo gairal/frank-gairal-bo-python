@@ -5,23 +5,17 @@ class Category(models.Model):
     display_order = models.PositiveSmallIntegerField()
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('display_order',)
 
 class Image(models.Model):
     name = models.CharField(max_length=50, unique=True)
     path = models.CharField(max_length=255)
-
-    class Meta:
-        ordering = ('name',)
 
 class Skill(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=255, null=True)
     level = models.PositiveSmallIntegerField(null=True)
     category = models.ForeignKey('Category', related_name='skills')
-
-    class Meta:
-        ordering = ('name',)
 
 class Education(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -37,7 +31,7 @@ class Education(models.Model):
     skills = models.ManyToManyField(Skill)
 
     class Meta:
-        ordering = ('year_in',)
+        ordering = ('-year_in',)
 
 class Experience(models.Model):
     name = models.CharField(max_length=50)
@@ -53,7 +47,7 @@ class Experience(models.Model):
     skills = models.ManyToManyField(Skill)
 
     class Meta:
-        ordering = ('date_in',)
+        ordering = ('-date_in',)
 
 class Interest(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -62,7 +56,7 @@ class Interest(models.Model):
     display_order = models.PositiveSmallIntegerField()
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('display_order',)
 
 class Travel(models.Model):
     place = models.CharField(max_length=50, unique=True)
@@ -71,4 +65,4 @@ class Travel(models.Model):
     display_order = models.PositiveSmallIntegerField()
 
     class Meta:
-        ordering = ('place',)
+        ordering = ('display_order',)

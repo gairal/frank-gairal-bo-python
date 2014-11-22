@@ -11,11 +11,17 @@ class ImageSerializer(serializers.ModelSerializer):
         model = Image
         fields = ('name', 'path')
 
+class InterestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Interest
+        fields = ('name', 'description', 'display_order')
+
 class CategorySerializer(serializers.ModelSerializer):
     skills = SkillSerializer(many=True)
+    interests = InterestSerializer(many=True)
     class Meta:
         model = Category
-        fields = ('name', 'display_order', 'skills')
+        fields = ('name', 'display_order', 'skills', 'interests')
 
 class EducationSerializer(serializers.ModelSerializer):
     skills = SkillSerializer(many=True)
@@ -28,11 +34,6 @@ class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
         fields = ('name', 'image', 'description', 'date_in', 'date_out', 'place', 'website', 'title', 'accomplishments', 'display_order', 'skills')
-
-class InterestSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Interest
-        fields = ('name', 'description', 'display_order')
 
 class TravelSerializer(serializers.ModelSerializer):
     class Meta:

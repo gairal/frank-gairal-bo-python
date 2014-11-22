@@ -9,6 +9,7 @@ router.register(r'educations', views.EducationViewSet)
 router.register(r'experiences', views.ExperienceViewSet)
 router.register(r'interests', views.InterestViewSet)
 router.register(r'travels', views.TravelViewSet)
+router.register(r'images', views.ImageViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browseable API.

@@ -1,11 +1,15 @@
 from rest_framework import viewsets
 
-from frank.rest_bo.models import Skill, Category, Education, Experience, Interest, Travel
-from frank.rest_bo.serializers import SkillSerializer, CategorySerializer, EducationSerializer, ExperienceSerializer, InterestSerializer, TravelSerializer
+from frank.rest_bo.models import Skill, Category, Education, Experience, Interest, Travel, Image
+from frank.rest_bo.serializers import SkillSerializer, CategorySerializer, EducationSerializer, ExperienceSerializer, InterestSerializer, TravelSerializer, ImageSerializer
 
 class SkillViewSet(viewsets.ModelViewSet):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
+
+class ImageViewSet(viewsets.ModelViewSet):
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()

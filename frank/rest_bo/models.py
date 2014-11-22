@@ -7,6 +7,13 @@ class Category(models.Model):
     class Meta:
         ordering = ('name',)
 
+class Image(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    path = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ('name',)
+
 class Skill(models.Model):
     name = models.CharField(max_length=50, unique=True)
     description = models.CharField(max_length=255, null=True)
@@ -18,6 +25,7 @@ class Skill(models.Model):
 
 class Education(models.Model):
     name = models.CharField(max_length=50, unique=True)
+    image = models.ForeignKey('Image', related_name='educations', null=True)
     short_description = models.CharField(max_length=255, null=True)
     year_in = models.DateField()
     year_out = models.DateField(null=True)
@@ -33,6 +41,7 @@ class Education(models.Model):
 
 class Experience(models.Model):
     name = models.CharField(max_length=50, unique=True)
+    image = models.ForeignKey('Image', related_name='experiences', null=True)
     description = models.TextField()
     date_in = models.DateField()
     date_out = models.DateField(null=True)
@@ -49,7 +58,6 @@ class Experience(models.Model):
 class Interest(models.Model):
     name = models.CharField(max_length=100, unique=True)
     description = models.CharField(max_length=50, null=True)
-    level = models.PositiveSmallIntegerField(null=True)
     category = models.ForeignKey('Category', related_name='interests')
     display_order = models.PositiveSmallIntegerField()
 

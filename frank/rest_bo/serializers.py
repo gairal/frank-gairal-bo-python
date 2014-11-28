@@ -25,12 +25,14 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class EducationSerializer(serializers.ModelSerializer):
     skills = SkillSerializer(many=True)
+    image = ImageSerializer()
     class Meta:
         model = Education
         fields = ('name', 'image', 'short_description', 'year_in', 'year_out', 'place', 'diploma', 'website', 'extra_info', 'description', 'skills')
 
 class ExperienceSerializer(serializers.ModelSerializer):
     skills = SkillSerializer(many=True)
+    image = ImageSerializer()
     class Meta:
         model = Experience
         fields = ('name', 'image', 'description', 'date_in', 'date_out', 'place', 'website', 'title', 'accomplishments', 'display_order', 'skills')

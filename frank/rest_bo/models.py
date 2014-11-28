@@ -4,9 +4,6 @@ class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     display_order = models.PositiveSmallIntegerField()
 
-    class Meta:
-        ordering = ('display_order',)
-
 class Image(models.Model):
     name = models.CharField(max_length=50, unique=True)
     path = models.CharField(max_length=255)

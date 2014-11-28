@@ -4,6 +4,8 @@ from frank.rest_bo import views
 
 router = routers.DefaultRouter()
 router.register(r'skills', views.SkillViewSet)
+router.register(r'skillscat', views.SkillCatViewSet)
+router.register(r'interestscat', views.InterestCatViewSet)
 router.register(r'categories', views.CategoryViewSet)
 router.register(r'educations', views.EducationViewSet)
 router.register(r'experiences', views.ExperienceViewSet)

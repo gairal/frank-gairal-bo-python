@@ -16,12 +16,22 @@ class InterestSerializer(serializers.ModelSerializer):
         model = Interest
         fields = ('name', 'description', 'display_order')
 
-class CategorySerializer(serializers.ModelSerializer):
+class SkillCategorySerializer(serializers.ModelSerializer):
     skills = SkillSerializer(many=True)
+    class Meta:
+        model = Category
+        fields = ('name', 'display_order', 'skills')
+
+class InterestCategorySerializer(serializers.ModelSerializer):
     interests = InterestSerializer(many=True)
     class Meta:
         model = Category
-        fields = ('name', 'display_order', 'skills', 'interests')
+        fields = ('name', 'display_order', 'interests')
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('name', 'display_order')
 
 class EducationSerializer(serializers.ModelSerializer):
     skills = SkillSerializer(many=True)

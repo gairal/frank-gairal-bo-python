@@ -20,8 +20,8 @@ ALLOWED_HOSTS = ['*']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', True)
-TEMPLATE_DEBUG = os.getenv('TEMPLATE_DEBUG', True)
+DEBUG = bool(os.getenv('DEBUG', ''))
+TEMPLATE_DEBUG = bool(os.getenv('TEMPLATE_DEBUG', ''))
 SECRET_KEY = os.getenv('SECRET_KEY', 'toto1234')
 DATABASES = {'default': dj_database_url.config(default='postgres://frankgairal@localhost:5432/frank')}
 

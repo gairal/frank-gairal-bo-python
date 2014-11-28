@@ -25,14 +25,14 @@ class ImageViewSet(viewsets.ModelViewSet):
     serializer_class = ImageSerializer
 
 class SkillCatViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.prefetch_related('skills').filter(skills__isnull=False).distinct('id')
+    queryset = Category.objects.prefetch_related('skills').filter(skills__isnull=False).distinct('display_order')
     serializer_class = SkillCategorySerializer
     filter_backends = (filters.OrderingFilter, filters.DjangoFilterBackend)
     filter_fields = ('name',)
     ordering_fields = ('display_order', 'name')
 
 class InterestCatViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.prefetch_related('interests').filter(interests__isnull=False).distinct('id')
+    queryset = Category.objects.prefetch_related('interests').filter(interests__isnull=False).distinct('display_order')
     serializer_class = InterestCategorySerializer
     filter_backends = (filters.OrderingFilter, filters.DjangoFilterBackend)
     filter_fields = ('name',)

@@ -70,5 +70,5 @@ class TravelViewSet(viewsets.ModelViewSet):
     queryset = Travel.objects.all()
     serializer_class = TravelSerializer
     filter_backends = (filters.OrderingFilter, filters.DjangoFilterBackend)
-    filter_fields = ('name',)
-    ordering_fields = ('name', 'longitude', 'latitude')
+    filter_fields = ('place',)
+    ordering_fields = ('place', 'longitude', 'latitude')

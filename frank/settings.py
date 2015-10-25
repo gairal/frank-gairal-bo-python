@@ -68,7 +68,8 @@ CORS_ALLOW_HEADERS = (
     'authorization',
     'x-csrftoken',
     'Access-Control-Max-Age',
-    'X-wsse'
+    'X-wsse',
+    'Accept-Encoding'
 )
 
 
